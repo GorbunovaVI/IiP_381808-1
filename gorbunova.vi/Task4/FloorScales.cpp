@@ -10,8 +10,7 @@ using namespace std;
 
 floorscales::floorscales()
 {
-	size = 0;
-	count = 0;
+	size =count= 0;
 	A = NULL;
 }
 
@@ -40,8 +39,8 @@ floorscales::~floorscales()
 
 void floorscales::add_observation(observation &obj)
 {
-	if (!A) throw "Сначала загрузите файл";
-	if (isfull()) throw "Нет свободной памяти для добавления наблюдения";
+	if (!A) throw "РЎРЅР°С‡Р°Р»Р° Р·Р°РіСЂСѓР·РёС‚Рµ С„Р°Р№Р»";
+	if (isfull()) throw "РќРµС‚ СЃРІРѕР±РѕРґРЅРѕР№ РїР°РјСЏС‚Рё РґР»СЏ РґРѕР±Р°РІР»РµРЅРёСЏ РЅР°Р±Р»СЋРґРµРЅРёСЏ";
 	A[count] = obj;
 	count++;
 }
@@ -53,7 +52,7 @@ observation floorscales::get_first_observation(string _n)
 		if (A[i].get_name() == _n)
 			return A[i];
 	}
-	throw "Нет наблюдений";
+	throw "РќРµС‚ РЅР°Р±Р»СЋРґРµРЅРёР№";
 }
 
 double floorscales::get_result_observation(string _n, int _d, int _m, int _y) 
@@ -66,7 +65,7 @@ double floorscales::get_result_observation(string _n, int _d, int _m, int _y)
 				return A[i].get_weight();
 		}
 	}
-	throw "Нет наблюдений";
+	throw "РќРµС‚ РЅР°Р±Р»СЋРґРµРЅРёР№";
 }
 
 double floorscales::get_min_weight(string _n) 
@@ -80,7 +79,7 @@ double floorscales::get_min_weight(string _n)
 				min = A[i].get_weight();
 		}
 	}
-	if (min == 99999999) throw "Нет наблюдений";
+	if (min == 99999999) throw "РќРµС‚ РЅР°Р±Р»СЋРґРµРЅРёР№";
 	return min;
 }
 
@@ -95,7 +94,7 @@ double floorscales::get_min_weight(string _n, int _m)
 				min = A[i].get_weight();
 		}
 	}
-	if (min == 99999999) throw "Нет наблюдений за этот месяц";
+	if (min == 99999999) throw "РќРµС‚ РЅР°Р±Р»СЋРґРµРЅРёР№ Р·Р° СЌС‚РѕС‚ РјРµСЃСЏС†";
 	return min;
 }
 
@@ -111,7 +110,7 @@ double floorscales::get_mid_weight(string _n)
 			counter++;
 		}
 	}
-	if (counter == 0) throw "Нет наблюдений";
+	if (counter == 0) throw "РќРµС‚ РЅР°Р±Р»СЋРґРµРЅРёР№";
 	return mid / counter;
 }
 
@@ -127,7 +126,7 @@ double floorscales::get_mid_weight(string _n, int _m)
 			counter++;
 		}
 	}
-	if (counter == 0) throw "нет наблюдений за этот месяц";
+	if (counter == 0) throw "РЅРµС‚ РЅР°Р±Р»СЋРґРµРЅРёР№ Р·Р° СЌС‚РѕС‚ РјРµСЃСЏС†";
 	return mid / counter;
 }
 
@@ -142,7 +141,7 @@ double floorscales::get_max_weight(string _n)
 				max = A[i].get_weight();
 		}
 	}
-	if (max == 0) throw "Нет наблюдений";
+	if (max == 0) throw "РќРµС‚ РЅР°Р±Р»СЋРґРµРЅРёР№";
 	return max;
 }
 
@@ -157,7 +156,7 @@ double floorscales::get_max_weight(string _n, int _m)
 				max = A[i].get_weight();
 		}
 	}
-	if (max == 0) throw "Нет наблюдений за этот месяц";
+	if (max == 0) throw "РќРµС‚ РЅР°Р±Р»СЋРґРµРЅРёР№ Р·Р° СЌС‚РѕС‚ РјРµСЃСЏС†";
 	return max;
 }
 
@@ -198,6 +197,11 @@ ostream& operator<<(ostream &stream, const floorscales &obj)
 	}
 	return stream;
 }
+
+
+
+
+
 
 
 
