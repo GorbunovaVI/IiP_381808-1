@@ -40,8 +40,8 @@ floorscales::~floorscales()
 
 void floorscales::add_observation(observation &obj)
 {
-	if (!A) throw "Load file before add observation";
-	if (isfull()) throw "No memory for add obsevation";
+	if (!A) throw "Сначала загрузите файл";
+	if (isfull()) throw "Нет свободной памяти для добавления наблюдения";
 	A[count] = obj;
 	count++;
 }
@@ -53,7 +53,7 @@ observation floorscales::get_first_observation(string _n)
 		if (A[i].get_name() == _n)
 			return A[i];
 	}
-	throw "No observation for this person";
+	throw "Нет наблюдений";
 }
 
 double floorscales::get_result_observation(string _n, int _d, int _m, int _y) 
@@ -66,7 +66,7 @@ double floorscales::get_result_observation(string _n, int _d, int _m, int _y)
 				return A[i].get_weight();
 		}
 	}
-	throw "No observation for this person for this date";
+	throw "Нет наблюдений";
 }
 
 double floorscales::get_min_weight(string _n) 
@@ -80,7 +80,7 @@ double floorscales::get_min_weight(string _n)
 				min = A[i].get_weight();
 		}
 	}
-	if (min == 99999999) throw "No observations for this person";
+	if (min == 99999999) throw "Нет наблюдений";
 	return min;
 }
 
@@ -95,7 +95,7 @@ double floorscales::get_min_weight(string _n, int _m)
 				min = A[i].get_weight();
 		}
 	}
-	if (min == 99999999) throw "No observations for this person for this month";
+	if (min == 99999999) throw "Нет наблюдений за этот месяц";
 	return min;
 }
 
@@ -111,7 +111,7 @@ double floorscales::get_mid_weight(string _n)
 			counter++;
 		}
 	}
-	if (counter == 0) throw "No observations for this person";
+	if (counter == 0) throw "Нет наблюдений";
 	return mid / counter;
 }
 
@@ -127,7 +127,7 @@ double floorscales::get_mid_weight(string _n, int _m)
 			counter++;
 		}
 	}
-	if (counter == 0) throw "No observations for this person for this month";
+	if (counter == 0) throw "нет наблюдений за этот месяц";
 	return mid / counter;
 }
 
@@ -142,7 +142,7 @@ double floorscales::get_max_weight(string _n)
 				max = A[i].get_weight();
 		}
 	}
-	if (max == 0) throw "No observations for this person";
+	if (max == 0) throw "Нет наблюдений";
 	return max;
 }
 
@@ -157,7 +157,7 @@ double floorscales::get_max_weight(string _n, int _m)
 				max = A[i].get_weight();
 		}
 	}
-	if (max == 0) throw "No observations for this person for this month";
+	if (max == 0) throw "Нет наблюдений за этот месяц";
 	return max;
 }
 
