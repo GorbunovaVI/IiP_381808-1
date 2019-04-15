@@ -9,7 +9,6 @@ class floorscales
 {
 	int size, count;
 	observation *A;
-
 	bool isfull() const { return count + 1 == size; }
 public:
 
