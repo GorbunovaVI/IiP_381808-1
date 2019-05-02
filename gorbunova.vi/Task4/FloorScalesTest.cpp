@@ -15,19 +15,19 @@ void main()
 	do
 	{
 		system("cls");
-		cout << " 0. Load from file." << endl;
-		cout << " 1. Save to file." << endl;
-		cout << " 2. Get date first observation for person." << endl;
-		cout << " 3. Add observation for person." << endl;
-		cout << " 4. Get a person's weight by date." << endl;
-		cout << " 5. Get a minumum person's weight by all time." << endl;
-		cout << " 6. Get a minumum person's weight by date." << endl;
-		cout << " 7. Get a middle person's weight by all time." << endl;
-		cout << " 8. Get a middle person's weight by date." << endl;
-		cout << " 9. Get a maximum person's weight by all time." << endl;
-		cout << "10. Get a maximum person's weight by date." << endl;
-		cout << "11. Exit." << endl << endl;
-		cout << "Enter your choise : ";
+		cout << " 0. Загрузить из файла." << endl;
+		cout << " 1. Загрузить в файл." << endl;
+		cout << " 2. Показать первое наблюдение." << endl;
+		cout << " 3. Добавить новое наблюдение." << endl;
+		cout << " 4. Показать вес человека по дате." << endl;
+		cout << " 5. Показать минимальный вес за все время." << endl;
+		cout << " 6. Показать минимальный вес за месяц." << endl;
+		cout << " 7. Показать средний вес за все время." << endl;
+		cout << " 8. Показать средний вес за месяц." << endl;
+		cout << " 9. Показать максимальный вес за все время." << endl;
+		cout << "10. Показать максимальный вес за месяц." << endl;
+		cout << "11. Завершить работу." << endl << endl;
+		cout << "Выберите пункт : ";
 		cin >> choise;
 		try
 		{
@@ -38,13 +38,13 @@ void main()
 				string path;
 				ifstream fcin;
 				system("cls");
-				cout << "Enter abs path to file for loading : ";
+				cout << "Введите абсолютный путь до файла для загрузки: ";
 				cin >> path;
 				fcin.open(path);
-				cout << "Start loading from file" << endl;
+				cout << "Начало загрузки" << endl;
 				fcin >> fs;
 				fcin.close();
-				cout << "End loading from file" << endl;
+				cout << "Конец загрузки" << endl;
 				system("pause");
 				break;
 			}
@@ -53,13 +53,13 @@ void main()
 				string path;
 				ofstream fcout;
 				system("cls");
-				cout << "Enter abs path to file for saving : ";
+				cout << "Введите абсолютный путь до файла для сохранения: ";
 				cin >> path;
 				fcout.open(path);
-				cout << "Start saving from file" << endl;
+				cout << "Начало сохранения" << endl;
 				fcout << fs;
 				fcout.close();
-				cout << "End saving from file" << endl;
+				cout << "Конец сохранения" << endl;
 				system("pause");
 				break;
 			}
@@ -67,9 +67,9 @@ void main()
 			{
 				string person;
 				system("cls");
-				cout << "Enter name : ";
+				cout << "Введите имя: ";
 				cin >> person;
-				cout << "First observation : " << fs.get_first_observation(person);
+				cout << "Первое наблюдение : " << fs.get_first_observation(person);
 				system("pause");
 				break;
 			}
@@ -77,10 +77,10 @@ void main()
 			{
 				observation o;
 				system("cls");
-				cout << "Enter observation (name day month year weight) : ";
+				cout << "Введите наблюдение (имя день месяц год вес) : ";//Ввод в формате name 1 01 2001 11.11
 				cin >> o;
 				fs.add_observation(o);
-				cout << "Observation was added" << endl;
+				cout << "Наблюдение было добавлено" << endl;
 				system("pause");
 				break;
 			}
@@ -89,11 +89,11 @@ void main()
 				string person;
 				int day, month, year;
 				system("cls");
-				cout << "Enter name : ";
+				cout << "Введите имя : ";
 				cin >> person;
-				cout << "Enter date (day month year): ";
+				cout << "Введите дату (день месяц год): ";
 				cin >> day >> month >> year;
-				cout << "Weight : " << fs.get_result_observation(person, day, month, year) << endl;
+				cout << "Вес : " << fs.get_result_observation(person, day, month, year) << endl;
 				system("pause");
 				break;
 			}
@@ -101,9 +101,9 @@ void main()
 			{
 				string person;
 				system("cls");
-				cout << "Enter name : ";
+				cout << "Введите имя: ";
 				cin >> person;
-				cout << "Min weight for all time: " << fs.get_min_weight(person) << endl;
+				cout << "Минимальный вес: " << fs.get_min_weight(person) << endl;
 				system("pause");
 				break;
 			}
@@ -112,11 +112,11 @@ void main()
 				int m;
 				string person;
 				system("cls");
-				cout << "Enter name : ";
+				cout << "Введите имя: ";
 				cin >> person;
-				cout << "Enter month : ";
+				cout << "Введите месяц: ";
 				cin >> m;
-				cout << "Min weight for month: " << fs.get_min_weight(person, m) << endl;
+				cout << "Минимальный вес: " << fs.get_min_weight(person, m) << endl;
 				system("pause");
 				break;
 			}
@@ -124,9 +124,9 @@ void main()
 			{
 				string person;
 				system("cls");
-				cout << "Enter name : ";
+				cout << "Введите имя : ";
 				cin >> person;
-				cout << "Middle weight for all time: " << fs.get_mid_weight(person) << endl;
+				cout << "Средний вес: " << fs.get_mid_weight(person) << endl;
 				system("pause");
 				break;
 			}
@@ -135,11 +135,11 @@ void main()
 				int m;
 				string person;
 				system("cls");
-				cout << "Enter name : ";
+				cout << "Введите имя: ";
 				cin >> person;
-				cout << "Enter month : ";
+				cout << "Введите месяц: ";
 				cin >> m;
-				cout << "Middle weight for month: " << fs.get_mid_weight(person, m) << endl;
+				cout << "Средний вес: " << fs.get_mid_weight(person, m) << endl;
 				system("pause");
 				break;
 			}
@@ -147,9 +147,9 @@ void main()
 			{
 				string person;
 				system("cls");
-				cout << "Enter name : ";
+				cout << "Введите имя: ";
 				cin >> person;
-				cout << "Max weight for all time: " << fs.get_max_weight(person) << endl;
+				cout << "Максимальный вес: " << fs.get_max_weight(person) << endl;
 				system("pause");
 				break;
 			}
@@ -158,11 +158,11 @@ void main()
 				int m;
 				string person;
 				system("cls");
-				cout << "Enter name : ";
+				cout << "Введите имя: ";
 				cin >> person;
-				cout << "Enter month : ";
+				cout << "Введите месяц: ";
 				cin >> m;
-				cout << "Max weight for month: " << fs.get_max_weight(person, m) << endl;
+				cout << "Максимальный вес: " << fs.get_max_weight(person, m) << endl;
 				system("pause");
 				break;
 			}
@@ -176,9 +176,9 @@ void main()
 		}
 		catch (...)
 		{
-			cout << "Unknown error" << endl;
+			cout << "Неизвестная ошибка" << endl;
 			system("pause");
 		}
 	} while (choise != 11);
-	return 0;
+	
 }
