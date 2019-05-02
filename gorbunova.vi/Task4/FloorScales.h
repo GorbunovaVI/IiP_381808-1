@@ -9,7 +9,6 @@ class floorscales
 {
 	int size, count;
 	observation *A;
-
 	bool isfull() const { return count + 1 == size; }
 public:
 
@@ -29,7 +28,11 @@ public:
 	double get_max_weight(string _n, int _m);//Максимальный вес за месяц
 
 
+
 	floorscales& operator=(const floorscales &obj);
+
+	floorscales& operator=(const floorscales &obj);//Оператор присваивания
+
 	friend istream& operator>>(istream &stream, floorscales &obj);//Ввод в поток
 	friend ostream& operator<<(ostream &stream, const floorscales &obj);//Вывод в поток
 };
