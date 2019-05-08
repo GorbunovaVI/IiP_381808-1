@@ -6,18 +6,22 @@ using namespace std;
 
 class Bankomat
 {
-	int q, w, e, r, t, y;//q=100,w=200,e=500,r=1000,t=2000,y=5000
-	int size=2;
+
+	int size;
 	ProcCenter *A;
+	int B[6];
 public:
 	Bankomat();
-	Bankomat(int q, int w, int e, int r, int t, int y,int size);
-	Bankomat(const Bankomat &obj);
-	~Bankomat();
-
-	Bankomat & operator=(const Bankomat & obj);
-
-	string Find_Person(int number);
+	
+	string Find_Name(int _number);//vyvod name
+	string Find_Surname(int _number);//vyvod surname
+	string Find_Patronimic(int _number);//vyvod patronimic
+	int Right_Pin(string _pin, int _number);//proverka pin
+	void Card_Block(int _number);//block card
+	int Proverka(int _number);//proverka blockirovki
+	int Schet(int _number);//vyvod scheta
+	void Zachislenie(int p, int _number, int money);//zachislenie na schet
+    void Snyatie(int summa,int _number);//snyatie deneg so sceta
 	
 	friend istream& operator>>(istream &stream, Bankomat &obj);
 	friend ostream& operator<<(ostream &ostream, Bankomat &obj);
